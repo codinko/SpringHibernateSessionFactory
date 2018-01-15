@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+   <bean id="stockService" class="com.codinko.service.StockService" >
+   		<property name="stockDAO" ref="stockDAO" />
+   </bean>
+   
+   <!-- sessionFactory defined in hibernate.xml -->
+   <bean id="stockDAO" class="com.codinko.dao.StockDAO">
+		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+	</bean>
+
+</beans>

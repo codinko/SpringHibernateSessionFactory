@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+<!-- For Spring and Hibernate 3 integration, Spring ORM provides two classes – 
+org.springframework.orm.hibernate3.LocalSessionFactoryBean when hibernate mappings are XML based[ below one that was used in our SpringHibernate1 project and 
+org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean  for annotations based mapping, above one that is used in this project.s -->
+	
+	<!-- Hibernate 3 XML SessionFactory Bean definition -->
+
+<!-- 	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+
+		<property name="mappingResources">
+			<list>
+				<value>stock.hbm.xml</value>
+			</list>
+		</property>
+		
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+
+	</bean>  -->
+	
+	<!-- There are two ways we can provide database connection details to Hibernate, 
+	first by passing everything in hibernateProperties and 
+	second by creating a DataSource and then passing it to hibernate ( used in our projects) -->
+	
+	<!-- For hibernate 4, we need to use org.springframework.orm.hibernate4.LocalSessionFactoryBean for SessionFactory bean, 
+	Spring ORM has merged both the classes that was present in Hibernate 3 and there is a single class now,to avoid confusion. All the other configurations remain same.
+	
+	 Hibernate 4 SessionFactory Bean definition 
+    <bean id="hibernate4AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> -->
+	
+	<!-- Hibernate 3 Annotation SessionFactory Bean definition-->
+	<bean id="hibernate3AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.codinko.model.Stock</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+	
+
+</beans>
