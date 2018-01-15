@@ -13,4 +13,13 @@ CREATE TABLE `codinkodb1`.`Stock` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 commit;
 
+-----
+
+new branch: save-vs-merge
+new branch: merge-vs-update
+
+https://www.youtube.com/watch?v=SH29O-bcQlc
+
+
+
 
