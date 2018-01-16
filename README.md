@@ -15,7 +15,7 @@ commit;
 
 -----
 
-new branch: save-vs-merge
+new branch: save-vs-persist
 new branch: merge-vs-update
 
 https://www.youtube.com/watch?v=SH29O-bcQlc
